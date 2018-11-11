@@ -35,10 +35,23 @@ module.exports = {
         desc: 'Backport one or more commits from the V8 repository',
         handler: main,
         builder: (yargs) => {
-          yargs.option('bump', {
-            describe: 'Bump V8 embedder version number or patch version',
-            default: true
-          });
+          yargs
+            .option('bump', {
+              describe: 'Bump V8 embedder version number or patch version',
+              default: true
+            })
+            .option('continue', {
+              describe: 'Continue current backporting session',
+              default: false
+            })
+            .option('abort', {
+              describe: 'Abort current backporting session',
+              default: false
+            })
+            .conflicts({
+              continue: 'abort',
+              abort: 'continue'
+            });
         }
       })
       .demandCommand(1, 'Please provide a valid command')
