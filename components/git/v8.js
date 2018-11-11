@@ -31,7 +31,7 @@ module.exports = {
         handler: main
       })
       .command({
-        command: 'backport <sha..>',
+        command: 'backport [sha..]',
         desc: 'Backport one or more commits from the V8 repository',
         handler: main,
         builder: (yargs) => {
@@ -41,12 +41,10 @@ module.exports = {
               default: true
             })
             .option('continue', {
-              describe: 'Continue current backporting session',
-              default: false
+              describe: 'Continue current backporting session'
             })
             .option('abort', {
-              describe: 'Abort current backporting session',
-              default: false
+              describe: 'Abort current backporting session'
             })
             .conflicts({
               continue: 'abort',
