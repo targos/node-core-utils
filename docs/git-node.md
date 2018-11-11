@@ -188,9 +188,10 @@ patch if necessary.
 If the `git apply` command fails, a patch file will be written in the Node.js
 clone directory.
 
-#### `git node v8 backport <sha>`
+#### `git node v8 backport <sha..>`
 
-Fetches and applies the patch corresponding to `sha`. Increments the V8
+Fetches and applies the patch corresponding to `sha`. Multiple commit SHAs can
+be provided and will be combined into a single commit. Increments the V8
 embedder version number or patch version and commits the changes.  
 If the `git apply` command fails, a patch file will be written in the Node.js
 clone directory.

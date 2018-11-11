@@ -31,8 +31,8 @@ module.exports = {
         handler: main
       })
       .command({
-        command: 'backport <sha>',
-        desc: 'Backport a single commit from the V8 repository',
+        command: 'backport <sha..>',
+        desc: 'Backport one or more commits from the V8 repository',
         handler: main,
         builder: (yargs) => {
           yargs.option('bump', {
